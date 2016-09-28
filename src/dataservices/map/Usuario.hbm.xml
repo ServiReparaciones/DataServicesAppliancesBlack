@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 12, 2016 9:35:08 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="dataservices.map.Usuario" table="USUARIO" catalog="dbServices">
+        <id name="idUsuario" type="java.lang.Integer">
+            <column name="ID_USUARIO" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="funcionarios" class="dataservices.map.Funcionarios" fetch="select">
+            <column name="FUNCIONARIOS_ID_FUN" not-null="true" />
+        </many-to-one>
+        <property name="usuNombre" type="string">
+            <column name="USU_NOMBRE" length="45" />
+        </property>
+        <property name="usuClaveSecreta" type="string">
+            <column name="USU_CLAVE_SECRETA" length="45" />
+        </property>
+        <property name="usuFecha" type="timestamp">
+            <column name="USU_FECHA" length="19" />
+        </property>
+        <property name="usuFlag" type="java.lang.Integer">
+            <column name="USU_FLAG" />
+        </property>
+    </class>
+</hibernate-mapping>

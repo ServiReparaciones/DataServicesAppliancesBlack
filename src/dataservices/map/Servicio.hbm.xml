@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 12, 2016 9:35:08 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="dataservices.map.Servicio" table="SERVICIO" catalog="dbServices">
+        <id name="idCentro" type="java.lang.Integer">
+            <column name="ID_CENTRO" />
+            <generator class="identity" />
+        </id>
+        <property name="serNombre" type="string">
+            <column name="SER_NOMBRE" length="45" />
+        </property>
+        <property name="serTelefono" type="string">
+            <column name="SER_TELEFONO" length="45" />
+        </property>
+        <property name="serRepresentante1" type="string">
+            <column name="SER_REPRESENTANTE_1" length="45" />
+        </property>
+        <property name="serRepresentante2" type="string">
+            <column name="SER_REPRESENTANTE_2" length="45" />
+        </property>
+        <set name="funcionarioses" table="FUNCIONARIOS" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="CENTRO_ID_CENTRO" not-null="true" />
+            </key>
+            <one-to-many class="dataservices.map.Funcionarios" />
+        </set>
+    </class>
+</hibernate-mapping>

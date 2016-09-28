@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 12, 2016 9:35:08 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="dataservices.map.Pro" table="PRO" catalog="dbServices">
+        <id name="idNpro" type="java.lang.Integer">
+            <column name="ID_NPRO" />
+            <generator class="identity" />
+        </id>
+        <property name="nproNombre" type="string">
+            <column name="NPRO_NOMBRE" length="45" />
+        </property>
+    </class>
+</hibernate-mapping>

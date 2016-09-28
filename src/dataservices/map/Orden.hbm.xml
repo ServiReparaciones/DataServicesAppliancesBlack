@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 12, 2016 9:35:08 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="dataservices.map.Orden" table="ORDEN" catalog="dbServices">
+        <id name="idOrden" type="java.lang.Integer">
+            <column name="ID_ORDEN" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="cliente" class="dataservices.map.Cliente" fetch="select">
+            <column name="CLIENTE_ID_CLIENTE" not-null="true" />
+        </many-to-one>
+        <many-to-one name="producto" class="dataservices.map.Producto" fetch="select">
+            <column name="PRODUCTO_ID_PRO" not-null="true" />
+        </many-to-one>
+        <property name="ordNumSis" type="java.lang.Integer">
+            <column name="ORD_NUM_SIS" />
+        </property>
+        <property name="ordNumOt1" type="string">
+            <column name="ORD_NUM_OT_1" length="12" />
+        </property>
+        <property name="ordNumOt2" type="string">
+            <column name="ORD_NUM_OT_2" length="12" />
+        </property>
+        <property name="ordNumOt3" type="string">
+            <column name="ORD_NUM_OT_3" length="12" />
+        </property>
+        <property name="ordFechaVisita" type="timestamp">
+            <column name="ORD_FECHA_VISITA" length="19" />
+        </property>
+        <property name="ordFalla" type="string">
+            <column name="ORD_FALLA" length="150" />
+        </property>
+        <property name="ordReparacion" type="string">
+            <column name="ORD_REPARACION" length="150" />
+        </property>
+        <property name="ordValorMobra" type="java.lang.Double">
+            <column name="ORD_VALOR_MOBRA" precision="22" scale="0" />
+        </property>
+        <property name="ordTipo" type="string">
+            <column name="ORD_TIPO" length="45" />
+        </property>
+        <property name="ordEstado" type="string">
+            <column name="ORD_ESTADO" length="45" />
+        </property>
+        <property name="ordFlag" type="java.lang.Integer">
+            <column name="ORD_FLAG" />
+        </property>
+        <set name="registros" table="REGISTRO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ORDEN_ID_ORDEN" not-null="true" />
+            </key>
+            <one-to-many class="dataservices.map.Registro" />
+        </set>
+        <set name="detallleRs" table="DETALLLE_R" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ORDEN_ID_ORDEN" not-null="true" />
+            </key>
+            <one-to-many class="dataservices.map.DetallleR" />
+        </set>
+    </class>
+</hibernate-mapping>

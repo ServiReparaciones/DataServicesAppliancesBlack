@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 12, 2016 9:35:08 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="dataservices.map.DetallleR" table="DETALLLE_R" catalog="dbServices">
+        <id name="idDetalleR" type="java.lang.Integer">
+            <column name="ID_DETALLE_R" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="orden" class="dataservices.map.Orden" fetch="select">
+            <column name="ORDEN_ID_ORDEN" not-null="true" />
+        </many-to-one>
+        <many-to-one name="repuesto" class="dataservices.map.Repuesto" fetch="select">
+            <column name="REPUESTO_ID_RES" not-null="true" />
+        </many-to-one>
+        <property name="detallleRCantidad" type="java.lang.Integer">
+            <column name="DETALLLE_R_CANTIDAD" />
+        </property>
+        <property name="detallleRValor" type="java.lang.Double">
+            <column name="DETALLLE_R_VALOR" precision="22" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

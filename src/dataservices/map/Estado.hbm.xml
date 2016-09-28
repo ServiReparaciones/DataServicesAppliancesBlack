@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 12, 2016 9:35:08 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="dataservices.map.Estado" table="ESTADO" catalog="dbServices">
+        <id name="idEstado" type="java.lang.Integer">
+            <column name="ID_ESTADO" />
+            <generator class="identity" />
+        </id>
+        <property name="estNombre" type="string">
+            <column name="EST_NOMBRE" length="45" />
+        </property>
+        <set name="registros" table="REGISTRO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ESTADO_ID_ESTADO" not-null="true" />
+            </key>
+            <one-to-many class="dataservices.map.Registro" />
+        </set>
+    </class>
+</hibernate-mapping>

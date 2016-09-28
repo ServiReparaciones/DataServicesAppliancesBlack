@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 12, 2016 9:35:08 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="dataservices.map.Garantia" table="GARANTIA" catalog="dbServices">
+        <id name="idGarantia" type="java.lang.Integer">
+            <column name="ID_GARANTIA" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="producto" class="dataservices.map.Producto" fetch="select">
+            <column name="PRODUCTO_ID_PRO" not-null="true" />
+        </many-to-one>
+        <property name="garFechaFactura" type="timestamp">
+            <column name="GAR_FECHA_FACTURA" length="19" />
+        </property>
+        <property name="garAlmacen" type="string">
+            <column name="GAR_ALMACEN" length="45" />
+        </property>
+        <property name="garTelefonoAlmacen" type="string">
+            <column name="GAR_TELEFONO_ALMACEN" length="12" />
+        </property>
+        <property name="garNumFactura" type="string">
+            <column name="GAR_NUM_FACTURA" length="12" />
+        </property>
+        <property name="garFlag" type="java.lang.Integer">
+            <column name="GAR_FLAG" />
+        </property>
+    </class>
+</hibernate-mapping>

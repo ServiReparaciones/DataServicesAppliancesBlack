@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 12, 2016 9:35:08 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="dataservices.map.Repuesto" table="REPUESTO" catalog="dbServices">
+        <id name="idRes" type="java.lang.Integer">
+            <column name="ID_RES" />
+            <generator class="identity" />
+        </id>
+        <property name="repNombre" type="string">
+            <column name="REP_NOMBRE" length="45" />
+        </property>
+        <property name="repMarca" type="string">
+            <column name="REP_MARCA" length="45" />
+        </property>
+        <property name="repNumPart" type="string">
+            <column name="REP_NUM_PART" length="45" />
+        </property>
+        <property name="repCod1" type="string">
+            <column name="REP_COD_1" length="45" />
+        </property>
+        <property name="repCod2" type="string">
+            <column name="REP_COD_2" length="45" />
+        </property>
+        <property name="repCod3" type="string">
+            <column name="REP_COD_3" length="45" />
+        </property>
+        <set name="detallleRs" table="DETALLLE_R" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="REPUESTO_ID_RES" not-null="true" />
+            </key>
+            <one-to-many class="dataservices.map.DetallleR" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/dbServices</property>
+    <property name="hibernate.connection.username">dbServicesUsers</property>
+    <property name="hibernate.connection.password">05019536.180411</property>
+    <property name="hibernate.transaction.factory_class">org.hibernate.transaction.JDBCTransactionFactory</property>
+    <property name="hibernate.current_session_context_class">thread</property>
+    <mapping resource="dataservices/map/Canton.hbm.xml"/>
+    <mapping resource="dataservices/map/Rep.hbm.xml"/>
+    <mapping resource="dataservices/map/Cliente.hbm.xml"/>
+    <mapping resource="dataservices/map/Orden.hbm.xml"/>
+    <mapping resource="dataservices/map/Provincia.hbm.xml"/>
+    <mapping resource="dataservices/map/Producto.hbm.xml"/>
+    <mapping resource="dataservices/map/Almacen.hbm.xml"/>
+    <mapping resource="dataservices/map/Registro.hbm.xml"/>
+    <mapping resource="dataservices/map/Parroquia.hbm.xml"/>
+    <mapping resource="dataservices/map/Servicio.hbm.xml"/>
+    <mapping resource="dataservices/map/Estado.hbm.xml"/>
+    <mapping resource="dataservices/map/DetallleR.hbm.xml"/>
+    <mapping resource="dataservices/map/Repuesto.hbm.xml"/>
+    <mapping resource="dataservices/map/Usuario.hbm.xml"/>
+    <mapping resource="dataservices/map/Pro.hbm.xml"/>
+    <mapping resource="dataservices/map/Funcionarios.hbm.xml"/>
+    <mapping resource="dataservices/map/Marca.hbm.xml"/>
+    <mapping resource="dataservices/map/Sesion.hbm.xml"/>
+    <mapping resource="dataservices/map/Rol.hbm.xml"/>
+    <mapping resource="dataservices/map/Garantia.hbm.xml"/>
+  </session-factory>
+</hibernate-configuration>

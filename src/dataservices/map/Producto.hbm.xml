@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 12, 2016 9:35:08 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="dataservices.map.Producto" table="PRODUCTO" catalog="dbServices">
+        <id name="idPro" type="java.lang.Integer">
+            <column name="ID_PRO" />
+            <generator class="identity" />
+        </id>
+        <property name="proNumSis" type="java.lang.Integer">
+            <column name="PRO_NUM_SIS" />
+        </property>
+        <property name="proNombre" type="string">
+            <column name="PRO_NOMBRE" length="45" />
+        </property>
+        <property name="proMarca" type="string">
+            <column name="PRO_MARCA" length="45" />
+        </property>
+        <property name="proModelo" type="string">
+            <column name="PRO_MODELO" length="45" />
+        </property>
+        <property name="proSerie" type="string">
+            <column name="PRO_SERIE" length="45" />
+        </property>
+        <property name="proCod1" type="string">
+            <column name="PRO_COD_1" length="45" />
+        </property>
+        <property name="proCod2" type="string">
+            <column name="PRO_COD_2" length="45" />
+        </property>
+        <property name="proCod3" type="string">
+            <column name="PRO_COD_3" length="45" />
+        </property>
+        <set name="garantias" table="GARANTIA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="PRODUCTO_ID_PRO" not-null="true" />
+            </key>
+            <one-to-many class="dataservices.map.Garantia" />
+        </set>
+        <set name="ordens" table="ORDEN" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="PRODUCTO_ID_PRO" not-null="true" />
+            </key>
+            <one-to-many class="dataservices.map.Orden" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
+<hibernate-reverse-engineering>
+  <schema-selection match-catalog="dbServices"/>
+  <table-filter match-name="MARCA"/>
+  <table-filter match-name="SESION"/>
+  <table-filter match-name="FUNCIONARIOS"/>
+  <table-filter match-name="CANTON"/>
+  <table-filter match-name="ESTADO"/>
+  <table-filter match-name="PARROQUIA"/>
+  <table-filter match-name="ALMACEN"/>
+  <table-filter match-name="REGISTRO"/>
+  <table-filter match-name="PROVINCIA"/>
+  <table-filter match-name="USUARIO"/>
+  <table-filter match-name="CLIENTE"/>
+  <table-filter match-name="ORDEN"/>
+  <table-filter match-name="DETALLLE_R"/>
+  <table-filter match-name="REPUESTO"/>
+  <table-filter match-name="GARANTIA"/>
+  <table-filter match-name="ROL"/>
+  <table-filter match-name="REP"/>
+  <table-filter match-name="SERVICIO"/>
+  <table-filter match-name="PRO"/>
+  <table-filter match-name="PRODUCTO"/>
+</hibernate-reverse-engineering>

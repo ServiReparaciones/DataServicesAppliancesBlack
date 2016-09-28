@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 12, 2016 9:35:08 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="dataservices.map.Cliente" table="CLIENTE" catalog="dbServices">
+        <id name="idCliente" type="java.lang.Integer">
+            <column name="ID_CLIENTE" />
+            <generator class="identity" />
+        </id>
+        <property name="cliNombres" type="string">
+            <column name="CLI_NOMBRES" length="90" />
+        </property>
+        <property name="cliCedula" type="string">
+            <column name="CLI_CEDULA" length="13" />
+        </property>
+        <property name="cliTelefono" type="string">
+            <column name="CLI_TELEFONO" length="15" />
+        </property>
+        <property name="cliMovil" type="string">
+            <column name="CLI_MOVIL" length="15" />
+        </property>
+        <property name="cliDireccion" type="string">
+            <column name="CLI_DIRECCION" length="150" />
+        </property>
+        <property name="cliReferencia" type="string">
+            <column name="CLI_REFERENCIA" length="150" />
+        </property>
+        <property name="cliProvincia" type="string">
+            <column name="CLI_PROVINCIA" length="45" />
+        </property>
+        <property name="cliCanton" type="string">
+            <column name="CLI_CANTON" length="45" />
+        </property>
+        <property name="cliParroquia" type="string">
+            <column name="CLI_PARROQUIA" length="45" />
+        </property>
+        <set name="ordens" table="ORDEN" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="CLIENTE_ID_CLIENTE" not-null="true" />
+            </key>
+            <one-to-many class="dataservices.map.Orden" />
+        </set>
+    </class>
+</hibernate-mapping>

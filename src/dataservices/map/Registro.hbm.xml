@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 12, 2016 9:35:08 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="dataservices.map.Registro" table="REGISTRO" catalog="dbServices">
+        <id name="idReg" type="java.lang.Integer">
+            <column name="ID_REG" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="orden" class="dataservices.map.Orden" fetch="select">
+            <column name="ORDEN_ID_ORDEN" not-null="true" />
+        </many-to-one>
+        <many-to-one name="funcionarios" class="dataservices.map.Funcionarios" fetch="select">
+            <column name="FUNCIONARIOS_ID_FUN" not-null="true" />
+        </many-to-one>
+        <many-to-one name="estado" class="dataservices.map.Estado" fetch="select">
+            <column name="ESTADO_ID_ESTADO" not-null="true" />
+        </many-to-one>
+        <property name="regFecha" type="timestamp">
+            <column name="REG_FECHA" length="19" />
+        </property>
+    </class>
+</hibernate-mapping>

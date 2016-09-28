@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 12, 2016 9:35:08 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="dataservices.map.Funcionarios" table="FUNCIONARIOS" catalog="dbServices">
+        <id name="idFun" type="java.lang.Integer">
+            <column name="ID_FUN" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="servicio" class="dataservices.map.Servicio" fetch="select">
+            <column name="CENTRO_ID_CENTRO" not-null="true" />
+        </many-to-one>
+        <many-to-one name="rol" class="dataservices.map.Rol" fetch="select">
+            <column name="ROL_ID_ROL" not-null="true" />
+        </many-to-one>
+        <property name="funNombres" type="string">
+            <column name="FUN_NOMBRES" length="45" />
+        </property>
+        <property name="funCedula" type="string">
+            <column name="FUN_CEDULA" length="13" />
+        </property>
+        <property name="funTelefono" type="string">
+            <column name="FUN_TELEFONO" length="15" />
+        </property>
+        <property name="funMovil" type="string">
+            <column name="FUN_MOVIL" length="15" />
+        </property>
+        <property name="funDireccion" type="string">
+            <column name="FUN_DIRECCION" length="150" />
+        </property>
+        <set name="registros" table="REGISTRO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="FUNCIONARIOS_ID_FUN" not-null="true" />
+            </key>
+            <one-to-many class="dataservices.map.Registro" />
+        </set>
+        <set name="usuarios" table="USUARIO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="FUNCIONARIOS_ID_FUN" not-null="true" />
+            </key>
+            <one-to-many class="dataservices.map.Usuario" />
+        </set>
+        <set name="sesions" table="SESION" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="FUNCIONARIOS_ID_FUN" not-null="true" />
+            </key>
+            <one-to-many class="dataservices.map.Sesion" />
+        </set>
+    </class>
+</hibernate-mapping>
